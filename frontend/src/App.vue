@@ -364,12 +364,12 @@ onMounted(fetchProducts)
 .logo-sub { font-size: 0.75rem; color: #475569; letter-spacing: 0.02em; }
 .btn-add {
   margin-left: auto;
-  background: linear-gradient(135deg, #10b981, #0f766e); color: #fff;
-  border: none; border-radius: 12px;
-  padding: 0.65rem 1.3rem; font-size: 0.95rem; font-weight: 700;
+  background: linear-gradient(135deg, #38bdf8, #6366f1); color: #fff;
+  border: none; border-radius: 999px;
+  padding: 0.75rem 1.45rem; font-size: 0.95rem; font-weight: 800;
   cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
-.btn-add:hover { transform: translateY(-1px); box-shadow: 0 14px 24px rgba(16,118,110,0.24); background: linear-gradient(135deg, #0f9d87, #0b6b5b); }
+.btn-add:hover { transform: translateY(-1px); box-shadow: 0 18px 28px rgba(59,130,246,0.32); background: linear-gradient(135deg, #22d3ee, #4f46e5); }
 
 .main { max-width: 1280px; margin: 0 auto; padding: 2rem 1.5rem 2.5rem; }
 
@@ -446,9 +446,16 @@ onMounted(fetchProducts)
   gap: 1.25rem;
 }
 .product-card {
-  background: rgba(15,23,42,0.9); border: 1px solid rgba(96,165,250,0.15); border-radius: 28px;
+  position: relative;
+  background: rgba(15,23,42,0.92); border: 1px solid rgba(96,165,250,0.16); border-radius: 28px;
   overflow: hidden; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.2s ease;
   box-shadow: 0 24px 70px rgba(0,0,0,0.24);
+}
+.product-card::before {
+  content: '';
+  position: absolute; inset: 0 0 auto;
+  height: 5px; left: 0; right: 0;
+  background: linear-gradient(90deg, rgba(56,189,248,0.9), rgba(99,102,241,0.9));
 }
 .product-card:hover { transform: translateY(-6px); box-shadow: 0 32px 80px rgba(0,0,0,0.28); }
 .product-card.card-low { border-color: rgba(248,113,113,0.5); }
@@ -562,11 +569,14 @@ onMounted(fetchProducts)
 .btn-danger-confirm:hover { background: rgba(248,113,113,0.38); transform: translateY(-1px); }
 
 @media (max-width: 880px) {
+  .hero-panel { grid-template-columns: 1fr; }
   .toolbar { flex-direction: column; align-items: stretch; }
   .result-count { margin-top: 0.35rem; }
   .stats-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
+  .hero-panel { padding: 1.2rem; }
+  .hero-copy h1 { font-size: 1.9rem; }
   .form-row { grid-template-columns: 1fr; }
   .product-grid { grid-template-columns: 1fr; }
   .main { padding: 1.5rem 1rem 2rem; }
